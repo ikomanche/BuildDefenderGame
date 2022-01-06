@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,14 @@ using UnityEngine.EventSystems;
 public class BuildingManager : MonoBehaviour
 {
     public static BuildingManager Instance { get; private set; }
+
+    public event EventHandler<OnActiveBuildingTypeChangedEventArgs> OnActiveBuildingTypeChanged;
+
+    public class OnActiveBuildingTypeChangedEventArgs : EventArgs
+    {
+        public BuildingTypeSO activeBuildingType;
+    }
+
     private BuildingTypeSO activeBuildingType;
     private BuildingTypeListSO buildingTypeList;
     private Camera mainCamera;
@@ -13,8 +22,7 @@ public class BuildingManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        buildingTypeList = Resources.Load<BuildingTypeListSO>("BuildingTypeList");
-        //activeBuildingType = buildingTypeList.list[0];
+        buildingTypeList = Resources.Load<BuildingTypeListSO>("BuildingTypeList");        
     }
     private void Start()
     {
@@ -26,30 +34,18 @@ public class BuildingManager : MonoBehaviour
         {
             if (activeBuildingType != null)
             {
-                Instantiate(activeBuildingType.Prefab, GetMouseWorldPosition(), Quaternion.identity);
+                Instantiate(activeBuildingType.Prefab, UtilsClass.GetMouseWorldPosition(), Quaternion.identity);
             }
-        }
-        //if (Input.GetKeyDown(KeyCode.T))
-        //{
-        //    buildingType = buildingTypeList.list[0];
-        //}
-        //if (Input.GetKeyDown(KeyCode.Y))
-        //{
-        //    buildingType = buildingTypeList.list[1];
-        //}
+        }        
 
     }
 
-    private Vector3 GetMouseWorldPosition()
-    {
-        Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPosition.z = 0f;
-
-        return mouseWorldPosition;
-    }
+    
     public void SetActiveBuildingType(BuildingTypeSO buildingType)
     {
         activeBuildingType = buildingType;
+        OnActiveBuildingTypeChanged?.Invoke(this, 
+            new OnActiveBuildingTypeChangedEventArgs { activeBuildingType = this.activeBuildingType});
     }   
     
     public BuildingTypeSO GetActiveBuildingType()
