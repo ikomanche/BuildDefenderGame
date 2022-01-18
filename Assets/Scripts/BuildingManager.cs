@@ -18,6 +18,7 @@ public class BuildingManager : MonoBehaviour
     private BuildingTypeSO activeBuildingType;
     private BuildingTypeListSO buildingTypeList;
     private Camera mainCamera;
+    [SerializeField] private Building hqBuilding;
 
     private void Awake()
     {
@@ -52,7 +53,12 @@ public class BuildingManager : MonoBehaviour
                     TooltipUI.Instance.Show(errorMessage, new TooltipUI.ToolTipTimer { timer = 2f });
                 }
             }
-        }        
+        }  
+        
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Enemy.Create(UtilsClass.GetMouseWorldPosition() + UtilsClass.GetRandomDir());
+        }
 
     }
 
@@ -112,5 +118,10 @@ public class BuildingManager : MonoBehaviour
 
         errorMessage = "Theres no building nearby!";
         return false;
+    }
+
+    public Building GetHQBuilding()
+    {
+        return hqBuilding;
     }
 }

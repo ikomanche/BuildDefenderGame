@@ -17,4 +17,8 @@ public static class UtilsClass
 
         return mouseWorldPosition;
     }
+    public static Vector3 GetRandomDir()
+    {
+        return new Vector3(Random.Range(-20, 20), Random.Range(-20, 20), Random.Range(-20, 20)).normalized;
+    }
 }
