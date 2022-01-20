@@ -1352,6 +1352,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 616dca18a9a35204584a234d5a5f6e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingResourceAmountList:
+  - resourceType: {fileID: 11400000, guid: 7617374add482e04a9d4ac82cfb94f7e, type: 2}
+    amount: 100
+  - resourceType: {fileID: 11400000, guid: 93cdf0fbfd8867f4dae6d1aaf2cb3f22, type: 2}
+    amount: 100
+  - resourceType: {fileID: 11400000, guid: 0e95632f9a40c1843bfadb2d700795aa, type: 2}
+    amount: 100
 --- !u!4 &273131337
 Transform:
   m_ObjectHideFlags: 0
@@ -2617,7 +2624,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12.00006
+  orthographic size: 10.00001
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8223,7 +8230,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1399741980}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 12.00006
+    OrthographicSize: 10.00001
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
