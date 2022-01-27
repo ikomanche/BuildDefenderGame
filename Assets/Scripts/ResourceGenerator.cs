@@ -43,7 +43,7 @@ public class ResourceGenerator : MonoBehaviour
                     (1 - (float)nearbyResourceAmount / resourceGeneratorData.maxResourceAmount);
         }
 
-        Debug.Log("nearby resource amount : " + nearbyResourceAmount + "; timerMax : " + timerMax);
+        //Debug.Log("nearby resource amount : " + nearbyResourceAmount + "; timerMax : " + timerMax);
     }
 
     public static int GetNearbyResourceAmount(ResourceGeneratorData resourceGeneratorData,Vector3 position)

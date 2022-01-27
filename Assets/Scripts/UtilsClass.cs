@@ -19,7 +19,7 @@ public static class UtilsClass
     }
     public static Vector3 GetRandomDir()
     {
-        return new Vector3(Random.Range(-20, 20), Random.Range(-20, 20), Random.Range(-20, 20)).normalized;
+        return new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), Random.Range(-50, 50)).normalized;
     }
 
     public static float GetVectorAngle(Vector3 vector)

@@ -16,12 +16,13 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         healthSystem.OnDamaged += HealthSystem_OnDamaged;
+        gameObject.SetActive(false);
         UpdateBar();
     }
 
     private void HealthSystem_OnDamaged(object sender, EventArgs e)
     {
-
+        gameObject.SetActive(true);
         UpdateBar();
     }
 
