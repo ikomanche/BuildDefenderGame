@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 911be4113ef67354dacd8b3542ff497a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d921b7cb87c53d94cb0ec38875bfb4ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6792453, g: 0.0032039948, b: 0.0032039948, a: 1}
+  m_Color: {r: 0.9351968, g: 0.9622642, b: 0.040850822, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -224,9 +224,9 @@ GameObject:
   - component: {fileID: 776357753095829874}
   - component: {fileID: 4402348662901557463}
   - component: {fileID: 9132817444751425944}
-  - component: {fileID: 8630891696431007515}
+  - component: {fileID: 510146150792224640}
   m_Layer: 5
-  m_Name: pfBuildingDemolishBtn
+  m_Name: pfBuildingRepairBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8630891696431007515
+--- !u!114 &510146150792224640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -322,7 +322,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 9164802137019549470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d38bd8058a63c54380d97ddc095b6e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 92c6cc80e8cff4842aab132616e0ac51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 0}
+  healthSystem: {fileID: 0}
+  goldResourceType: {fileID: 11400000, guid: 7617374add482e04a9d4ac82cfb94f7e, type: 2}
