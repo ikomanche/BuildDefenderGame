@@ -7,6 +7,7 @@ public class HealthSystem : MonoBehaviour
 {
     public event EventHandler OnDamaged;
     public event EventHandler OnDied;
+    public event EventHandler OnHealed;
     private int healthAmount;
     private BuildingTypeHolder buildingTypeHolder;
     [SerializeField]private int healthAmountMax;
@@ -16,6 +17,21 @@ public class HealthSystem : MonoBehaviour
     {
         healthAmount = healthAmountMax;
     }
+
+    public void Heal(int healAmount)
+    {
+        healthAmount += healAmount;
+        healthAmount = Mathf.Clamp(healthAmount, 0, healthAmountMax);
+
+        OnHealed?.Invoke(this, EventArgs.Empty);
+    }
+    public void HealFull()
+    {        
+        healthAmount = healthAmountMax;
+
+        OnHealed?.Invoke(this, EventArgs.Empty);
+    }
+
     public void Damage(int damage)
     {
         healthAmount -= damage;
@@ -41,9 +57,17 @@ public class HealthSystem : MonoBehaviour
     {
         return healthAmount == 0; 
     }
+    public bool IsFullHealth()
+    {
+        return healthAmount == healthAmountMax; 
+    }
     public int GetHealthAmount()
     {
         return healthAmount;
+    }
+    public int GetHealthAmountMax()
+    {
+        return healthAmountMax;
     }
     public float GetHealthAmountNormalized()
     {

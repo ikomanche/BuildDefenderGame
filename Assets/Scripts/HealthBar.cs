@@ -16,14 +16,33 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         healthSystem.OnDamaged += HealthSystem_OnDamaged;
+        healthSystem.OnHealed += HealthSystem_OnHealed;
         gameObject.SetActive(false);
         UpdateBar();
     }
 
+    private void HealthSystem_OnHealed(object sender, EventArgs e)
+    {
+        UpdateBar();
+        UpdateHealthBarVisible();
+    }
+
     private void HealthSystem_OnDamaged(object sender, EventArgs e)
     {
-        gameObject.SetActive(true);
         UpdateBar();
+        UpdateHealthBarVisible();
+    }
+
+    private void UpdateHealthBarVisible()
+    {
+        if(healthSystem.IsFullHealth())
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
     }
 
     private void UpdateBar()
